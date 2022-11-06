@@ -42,7 +42,18 @@ ipdb = "^0.13.9"
 isort = "^5.10.1"
 pre-commit = "^2.20.0"
 pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+pytest-django = "^4.5.2"
+pytest-xdist = "^3.0.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "backend.core.settings"
+python_files = "tests.py test_*.py *_tests.py"
+addopts = "--pdbcls=IPython.terminal.debugger:TerminalPdb -p no:warnings --cov backend"
+testpaths = [
+    "backend.tests",
+]

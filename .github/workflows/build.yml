@@ -1,0 +1,50 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+
+      - name: Install main packages
+        run: |
+          echo "Install main packages"
+          pip install --upgrade pip poetry virtualenv
+
+      - name: Create virtual environment
+        run: |
+          echo "Create virtual environment"
+          virtualenv .venv -p python3
+
+      - name: Install dependencies
+        run: |
+          echo "Install dependencies"
+          source .venv/bin/activate
+          poetry install
+
+      - name: Lint with flake8
+        run: |
+          echo "Lint with flake8"
+          source .venv/bin/activate
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Test with pytest
+        run: |
+          echo "Running tests with pytest"
+          source .venv/bin/activate
+          export FB_CLIENT_ID=${{ secrets.FB_CLIENT_ID }}
+          export SECRET_KEY=some_random_key
+          pytest
