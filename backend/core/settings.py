@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # DRF
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "core.wsgi.application"
+WSGI_APPLICATION = "backend.core.wsgi.application"
 
 
 # Database
