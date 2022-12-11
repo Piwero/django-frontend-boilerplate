@@ -38,7 +38,7 @@ python = "^3.9"
 python-decouple = "^3.6"
 
 [tool.poetry.dev-dependencies]
-black = "^22.10"
+black = "^22.12"
 flake9 = "3.8.3.post2"
 ipdb = "^0.13.9"
 isort = "^5.10.1"
