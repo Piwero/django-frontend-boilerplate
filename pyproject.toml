@@ -31,7 +31,7 @@ description = ""
 authors = ["Piwero <piwero@gmail.com>"]
 
 [tool.poetry.dependencies]
-Django = "^4.1.5"
+Django = "^4.1.7"
 djangorestframework = "^3.14.0"
 drf-spectacular = "^0.25.1"
 python = "^3.9"
