@@ -33,7 +33,7 @@ authors = ["Piwero <piwero@gmail.com>"]
 [tool.poetry.dependencies]
 Django = "^4.1.7"
 djangorestframework = "^3.14.0"
-drf-spectacular = "^0.25.1"
+drf-spectacular = "^0.26.0"
 python = "^3.9"
 python-decouple = "^3.7"
 
